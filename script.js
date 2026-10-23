@@ -10,14 +10,9 @@ import {
   orderBy
 } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
 
-import {
-  getAuth,
-  signInAnonymously
-} from "https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js";
-
 // Replace these values with your actual Firebase configuration.
 const firebaseConfig = {
-  apiKey: "PASTE_YOUR_API_KEY",
+  apiKey: "AIzaSyAccxK-n6A35vxphELioGZEQqyJwbpBka",
   authDomain: "booknest-c04e0.firebaseapp.com",
   projectId: "booknest-c04e0",
   storageBucket: "booknest-c04e0.firebasestorage.app",
@@ -27,7 +22,6 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
-const auth = getAuth(app);
 
 const homePage = document.getElementById("homePage");
 const addPage = document.getElementById("addPage");
@@ -303,17 +297,5 @@ document.getElementById("backHomeBtn").addEventListener("click", () => {
   showPage("home");
 });
 
-async function startBookNest() {
-  try {
-    await signInAnonymously(auth);
-    listenForBooks();
-    showPage("home");
-  } catch (error) {
-    console.error("Firebase startup failed:", error);
-    alert(
-      "BookNest could not connect. Check that Anonymous sign-in is enabled."
-    );
-  }
-}
-
-startBookNest();
+listenForBooks();
+showPage("home");
