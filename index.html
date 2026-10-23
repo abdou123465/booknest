@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📚 BookNest</title>
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📚</text></svg>">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>📚 BookNest</h1>
+        <p>Your world of stories</p>
+    </header>
+
+    <nav>
+        <button id="homeBtn">Home</button>
+        <button id="addBtn">＋ Add a book</button>
+    </nav>
+
+    <main>
+        <section id="homePage">
+            <h2>Discover books</h2>
+            <input id="search" type="search" placeholder="Search books...">
+            <div id="bookGrid" class="book-grid"></div>
+        </section>
+
+        <section id="addPage" hidden>
+            <h2>Publish your book</h2>
+            <form id="bookForm">
+                <label for="title">Book title</label>
+                <input id="title" required maxlength="100" placeholder="Enter your title">
+
+                <label for="author">Author</label>
+                <input id="author" required maxlength="60" placeholder="Your name">
+
+                <label for="cover">Cover image</label>
+                <input id="cover" type="file" accept="image/*">
+                <img id="coverPreview" alt="Cover preview" hidden>
+
+                <label for="pages">Book pages</label>
+                <p class="hint">Write each page separately. Put the line ---PAGE--- between pages. The cover is always
+                    page 1.</p>
+                <textarea id="pages" required rows="12"
+                    placeholder="Once upon a time...&#10;&#10;---PAGE---&#10;&#10;The adventure continued..."></textarea>
+
+                <button type="submit" class="primary">Publish book</button>
+                <button type="button" id="cancelBtn">Cancel</button>
+            </form>
+        </section>
+
+        <section id="readerPage" hidden>
+            <button id="backHomeBtn">← Back to library</button>
+            <div id="reader"></div>
+            <div class="page-controls">
+                <button id="prevBtn">← Previous page</button>
+                <span id="pageNumber"></span>
+                <button id="nextBtn">Next page →</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>📚 BookNest — Every book starts with a page.</footer>
+    <script src="script.js"></script>
+</body>
+
+</html>
